@@ -27,11 +27,10 @@ class LoadingModal extends React.Component {
       >
         <button onClick={
           () => {
-
+            store.dispatch({ type: "SET_IS_LOADING", value: false })
           }
         }>close</button>
         <div>Loading .......</div>
-
       </Modal>
     );
   }

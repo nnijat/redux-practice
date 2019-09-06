@@ -6,7 +6,7 @@ function ShowModal(props) {
     <div>
       <button onClick={
         () => {
-
+          store.dispatch({ type: "SET_IS_LOADING", value: true })
         }
       }>Show Modal</button>
 

@@ -7,7 +7,7 @@ function SortUsers(props) {
       Sort Users On:
         <select onChange={
         (e) => {
-
+          store.dispatch({ type: "SET_CURRENT_USER_SORT", value: e.target.value })
         }
       }>
         <option value="first_name">First Name</option>

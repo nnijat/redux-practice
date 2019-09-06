@@ -6,7 +6,7 @@ function SpecialTextBox(props) {
     <div>
       Enter Special Text:
         <input onChange={(e) => {
-
+        store.dispatch({ type: "SET_SPECIAL_TEXT", value: e.target.value })
       }} />
     </div>
   );

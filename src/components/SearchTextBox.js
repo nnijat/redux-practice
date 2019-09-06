@@ -6,7 +6,7 @@ function SearchTextBox(props) {
     <div>
       Search Users on First Name:
         <input onChange={(e) => {
-
+        store.dispatch({ type: "SET_SEARCH_TEXT", value: e.target.value })
       }} />
     </div>
   );
