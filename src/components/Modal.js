@@ -1,9 +1,10 @@
 import React from 'react';
 import Modal from 'react-modal';
+import store from "../store";
 
 class LoadingModal extends React.Component {
-  state={
-    isLoading:false
+  state = {
+    isLoading: false
   }
   render() {
     const {
@@ -17,10 +18,10 @@ class LoadingModal extends React.Component {
         contentLabel="Example Modal"
       >
         <button onClick={
-          ()=>{
-           
+          () => {
+
           }
-          }>close</button>
+        }>close</button>
         <div>Loading .......</div>
 
       </Modal>
@@ -30,23 +31,13 @@ class LoadingModal extends React.Component {
 
 export default LoadingModal;
 
-
-
-
-
-
-
-
-
-
-
 const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
   }
 };
