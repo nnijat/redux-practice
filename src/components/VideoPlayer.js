@@ -1,7 +1,16 @@
 import React from 'react';
+import store from "../store";
 
 class VideoPlayer extends React.Component {
-  state={scale:0,URL:""}
+  state = { scale: 0, URL: "" }
+
+  componentDidMount() {
+    store.subscribe(() => {
+      let videoScale = store.getState().videoScale;
+      let videoURL = store.getState().videoURL;
+      this.setState({ scale: videoScale, URL: videoURL, });
+    })
+  }
 
   render() {
     const {
@@ -10,12 +19,12 @@ class VideoPlayer extends React.Component {
 
     let width = 200;
     let height = 200;
-    if(this.state.scale){
+    if (this.state.scale) {
       width = 200 * props.scale;
       height = 200 * props.scale;
     }
     return (
-        <div><iframe title="YouTube video player"  type="text/html" 
+      <div><iframe title="YouTube video player" type="text/html"
         width={width} height={height} src={this.state.URL}
         frameBorder="0" allowFullScreen></iframe></div>
     );
