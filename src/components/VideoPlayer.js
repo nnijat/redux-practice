@@ -4,6 +4,14 @@ import store from "../store";
 class VideoPlayer extends React.Component {
   state = { scale: 0, URL: "" }
 
+  componentDidMount() {
+    store.subscribe(() => {
+      let videoScale = store.getState().videoScale;
+      let videoURL = store.getState().videoURL;
+      this.setState({ scale: videoScale, URL: videoURL, });
+    })
+  }
+
   render() {
     const {
       props,

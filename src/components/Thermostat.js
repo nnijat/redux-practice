@@ -5,6 +5,15 @@ import store from "../store";
 class Thermostat extends React.Component {
   state = { temp: "" }
 
+  componentDidMount() {
+    let currentTemp = store.getState().currentTemp;
+    this.setState({ temp: currentTemp });
+    store.subscribe(() => {
+      let currentTemp = store.getState().currentTemp;
+      this.setState({ temp: currentTemp });
+    })
+  }
+
   render() {
     const {
       props,

@@ -6,6 +6,14 @@ class LoadingModal extends React.Component {
   state = {
     isLoading: false
   }
+
+  componentDidMount() {
+    store.subscribe(() => {
+      let isLoading = store.getState().isLoading;
+      this.setState({ isLoading: isLoading });
+    })
+  }
+
   render() {
     const {
       props,

@@ -3,6 +3,16 @@ import store from "../store";
 
 class SpecialText extends React.Component {
   state = { text: "" }
+
+  componentDidMount() {
+    let specialText = store.getState().specialText
+    this.setState({ text: specialText })
+    store.subscribe(() => {
+      let specialText = store.getState().specialText
+      this.setState({ text: specialText })
+    })
+  }
+
   render() {
     const {
       props,

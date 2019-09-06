@@ -6,6 +6,15 @@ class CurrentCity extends React.Component {
     text: ""
   }
 
+  componentDidMount() {
+    let currentCity = store.getState().currentCity;
+    this.setState({ text: currentCity });
+    store.subscribe(() => {
+      let currentCity = store.getState().currentCity;
+      this.setState({ text: currentCity });
+    })
+  }
+
   render() {
     const {
       props,
