@@ -12,10 +12,10 @@ import { combineReducers } from 'redux'
 
 function currentCount(state = 0, action) {
   if (action.type === "INCREASE_COUNTER") {
-
+    return state + 1;
   }
   if (action.type === "DECREASE_COUNTER") {
-
+    return state - 1;
   }
   return state;
 }
@@ -42,14 +42,14 @@ function searchText(state = "", action) {
 }
 
 function currentTemp(state = "", action) {
-  if (action.type === "SET_CURRENT_TEMP") {
+  if (action.type === "SET_TEMP") {
     return action.value
   }
   return state;
 }
 
 function isLoading(state = false, action) {
-  if (action.type === "IS_LOADING") {
+  if (action.type === "SET_IS_LOADING") {
     return action.value
   }
   return state;
@@ -78,10 +78,10 @@ function videoScale(state = 1, action) {
 
 function users(state = [], action) {
   if (action.type === "ADD_USER") {
-
+    return [...state, action.value]
   }
   if (action.type === "REMOVE_USER") {
-
+    return state.slice(1)
   }
   return state;
 }
